@@ -145,7 +145,8 @@
 
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 <script src="files.js"></script>
-<script>
+<script type="module">
+
   var gameNames = [
     "Breaking The Bank",
     "Escaping The Prison",
@@ -154,12 +155,23 @@
     "Fleeing The Complex"
   ];
   
+const ITA = await mergeParts([
+    "infiltratingtheairship.swf.part1",
+    "infiltratingtheairship.swf.part2"
+]);
+
+const FTC = await mergeParts([
+    "fleeingthecomplex.swf.part1",
+    "fleeingthecomplex.swf.part2"
+]);
+
+
   var files = [
     "https://cdn.jsdelivr.net/gh/selenite-cc/flasharchive@187e8105c2afdd4dc1c49d36c840e933bef695dc/Henry%20Stickmin%20-%20Breaking%20the%20Bank.swf",
     "https://cdn.jsdelivr.net/gh/selenite-cc/flasharchive@187e8105c2afdd4dc1c49d36c840e933bef695dc/Henry%20Stickmin%20-%20Escaping%20the%20Prison.swf",
     "https://cdn.jsdelivr.net/gh/bubbls/UGS-file-encryption@dc2b26056f8035da39dfff61f6b9011e472f24a4/574241_DiamondNGSP.swf",
-    mergeParts(["infiltratingtheairship.swf.part1","infiltratingtheairship.swf.part2"]),
-    mergeParts(["fleeingthecomplex.swf.part1","fleeingthecomplex.swf.part2"])
+    ITA,
+    FTC
   ]
 
   const grid = document.getElementById("gameGrid");
@@ -196,17 +208,6 @@
   closeBtn.onclick = () => {
     modal.style.display = "none";
     playerContainer.innerHTML = "";
-  };
-
-  fullscreenBtn.onclick = () => {
-    const embed = document.getElementById("gameEmbed");
-    if (embed && embed.requestFullscreen) {
-      embed.requestFullscreen();
-    } else if (embed && embed.webkitRequestFullscreen) {
-      embed.webkitRequestFullscreen();
-    } else if (embed && embed.msRequestFullscreen) {
-      embed.msRequestFullscreen();
-    }
   };
 </script>
 
