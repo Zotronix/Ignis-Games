@@ -140,8 +140,10 @@
         }
       
 (async () => {
- const dataUrl = await Promise.all([
+ const [dataUrl, wasmUrl, frameworkUrl] = await Promise.all([
    mergeFiles(getParts("rc.data.unityweb", 1, 2)),
+   mergeFiles(["rc.wasm.code.unityweb"]),
+   mergeFiles(["rc.wasm.framework.unityweb"]),
   ]);   
   
   
@@ -150,8 +152,8 @@
 "productName": "1v1.LOL",
 "productVersion": "3.800",
 "dataUrl": dataUrl + "#rc.data.unityweb",
-"wasmCodeUrl": "rc.wasm.code.unityweb",
-"wasmFrameworkUrl": "rc.wasm.framework.unityweb",
+"wasmCodeUrl": wasmUrl + "#rc.wasm.code.unityweb",
+"wasmFrameworkUrl": frameworkUrl + "#rc.wasm.framework.unityweb",
 "graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},
 "splashScreenStyle": "Dark",
@@ -162,7 +164,7 @@
 "unityVersion": "2019.4.24f1"
 }
 
-	console.log(gameConfig)
+console.log(gameConfig);
       var hostname = window.location.hostname;
       if (hostname.indexOf("dev1v1") >= 0 || hostname.indexOf("dev.1v1") >= 0 || hostname.indexOf("test1v1") >= 0 || hostname.indexOf("test.1v1") >= 0) {
       }
@@ -355,5 +357,4 @@
     </script>
 </body>
 </html>
-
 
