@@ -100,12 +100,9 @@
 <script src="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/files.js"></script>
     <script>
 const dataURL = null
-
-async function a() {
-dataURL = await combineUnityData(["rc.data.unityweb.part1", "rc.data.unityweb.part2"])
-}
-
-a()
+combineUnityData(["rc.data.unityweb.part1", "rc.data.unityweb.part2"]).then(a => {
+dataURL = a
+})
 
       var gameConfig = {
 "companyName": "JustPlay.LOL",
