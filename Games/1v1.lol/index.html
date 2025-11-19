@@ -99,12 +99,9 @@
     <!--<script src="Build/UnityLoader.js"></script>-->
 <script src="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/files.js"></script>
     <script>
-const dataURL = null
-combineUnityData(["rc.data.unityweb.part1", "rc.data.unityweb.part2"]).then(a => {
-dataURL = a
-})
-
-      var gameConfig = {
+(async () => {
+cosnt dataURL = await combineUnityData(["rc.data.unityweb.part1", "rc.data.unityweb.part2"]);
+  var gameConfig = {
 "companyName": "JustPlay.LOL",
 "productName": "1v1.LOL",
 "productVersion": "3.800",
@@ -146,6 +143,10 @@ dataURL = a
           gameLoaded = true;
         }
       }
+
+}
+
+    
 
       document.onkeydown = function (e) {
         if (e.altKey || e.ctrlKey || e.key == "F1" || e.key == "F2" || e.key == "F3" || e.key == "F4") {
