@@ -100,7 +100,7 @@
 <script src="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/files.js"></script>
     <script>
 (async () => {
-cosnt dataURL = await combineUnityData(["rc.data.unityweb.part1", "rc.data.unityweb.part2"]);
+     const dataURL = await combineUnityData(["rc.data.unityweb.part1", "rc.data.unityweb.part2"]);
   var gameConfig = {
 "companyName": "JustPlay.LOL",
 "productName": "1v1.LOL",
@@ -142,11 +142,8 @@ cosnt dataURL = await combineUnityData(["rc.data.unityweb.part1", "rc.data.unity
           loader.style.display = "none";
           gameLoaded = true;
         }
-      })();
-
-}
-
-    
+      };
+})(); 
 
       document.onkeydown = function (e) {
         if (e.altKey || e.ctrlKey || e.key == "F1" || e.key == "F2" || e.key == "F3" || e.key == "F4") {
