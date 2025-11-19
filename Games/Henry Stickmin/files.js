@@ -22,13 +22,7 @@ async function fetchWithProgress(url) {
         }
   
   async function combineUnityData(parts, finalName) {
-    const blobs = [];
-    for (let part of parts) {
-        const response = await fetch(part); // fetch each chunk
-        const blob = await response.blob();
-        blobs.push(blob);
-    }
-    const buffers = await Promise.all(blobs.map(part => fetchWithProgress(part)));
+    const buffers = await Promise.all(parts.map(part => fetchWithProgress(part)));
     const mergedBlob = new Blob(buffers);
     return URL.createObjectURL(mergedBlob);
 }
