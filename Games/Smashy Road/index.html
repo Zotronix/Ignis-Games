@@ -29,21 +29,6 @@
   <!--END: CUSTOM HEAD --> 
   <!----GAMECONFIG-->
 <script src="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/files.js"></script>
-	<script id="gmsoft_build_config">
-		var buildUrl = "Build";
-		var loaderUrl = buildUrl + "/escape-road-city-v24121201.loader.js";
-		var config = {
-			dataUrl: combineUnityData(["escape-road-city-v24121201.data.unityweb.part1", "escape-road-city-v24121201.data.unityweb.part2"]),
-			frameworkUrl: buildUrl + "/escape-road-city-v24121201.framework.js.unityweb",
-			codeUrl: combineUnityData(["escape-road-city-v24121201.wasm.unityweb.part1", "escape-road-city-v24121201.wasm.unityweb.part2", "escape-road-city-v24121201.wasm.unityweb.part3"]),
-					streamingAssetsUrl: "https://azgames.io/game/escape-road-city/StreamingAssets",
-			companyName: "azgames.io",
-			productName: "Escape Road City",
-			productVersion: "24121201",
-            pubId: ""
-		};
-		config.gameId = "escape-road-city";
-	</script>
 </head>
 
 <body>
@@ -90,6 +75,24 @@
   </div>
 </div>
 	<script> 
+(async () => {
+const dataUrl = await combineUnityData(["escape-road-city-v24121201.data.unityweb.part1", "escape-road-city-v24121201.data.unityweb.part2"]);
+const codeUrl = await combineUnityData(["escape-road-city-v24121201.wasm.unityweb.part1", "escape-road-city-v24121201.wasm.unityweb.part2", "escape-road-city-v24121201.wasm.unityweb.part3"])
+
+		var buildUrl = "Build";
+		var loaderUrl = buildUrl + "/escape-road-city-v24121201.loader.js";
+		var config = {
+			dataUrl: dataUrl,
+			frameworkUrl: buildUrl + "/escape-road-city-v24121201.framework.js.unityweb",
+			codeUrl: codeUrl,
+			streamingAssetsUrl: "https://azgames.io/game/escape-road-city/StreamingAssets",
+			companyName: "azgames.io",
+			productName: "Escape Road City",
+			productVersion: "24121201",
+            pubId: ""
+		};
+		config.gameId = "escape-road-city";
+
 		var progressElement = document.getElementById('progress_fill');
 		var container =  document.getElementById("unity-container");
 		var canvas =  document.getElementById("unity-canvas");
@@ -118,6 +121,7 @@
 		});
 		};
 		document.body.appendChild(script);
+})();
 	</script>
 	
 	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
