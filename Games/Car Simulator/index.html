@@ -20,18 +20,7 @@
     <script src="UnityLoader.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/files.js"></script>
     <script>
-var gameConfig = {
-  "TOTAL_MEMORY": 268435456,
-  "dataUrl": combineUnityData(["cars-simulator-v2.data.unityweb.part1","cars-simulator-v2.data.unityweb.part2"]),
-  "asmCodeUrl": "cars-simulator-v2.asm.code.unityweb",
-  "asmMemoryUrl": "cars-simulator-v2.asm.memory.unityweb",
-  "asmFrameworkUrl": "cars-simulator-v2.asm.framework.unityweb",
-  "splashScreenStyle": "Dark",
-  "backgroundColor": "#222C36"
-}
-
-
-      var gameInstance = UnityLoader.instantiate("gameContainer", gameConfig, {
+      var gameInstance = UnityLoader.instantiate("gameContainer", "https://ignistesting.mos.us-south-1.sufybkt.com/Car%20Simulator/cars-simulator-v2.json", {
         onProgress: UnityProgress,
         Module: {
           onRuntimeInitialized: function () {
@@ -48,4 +37,5 @@ var gameConfig = {
       <div id="gameContainer" style="width: 100vw; height: 100vh;"></div>
     </div>
   </body>
+
 </html>
