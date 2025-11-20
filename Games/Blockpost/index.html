@@ -8,20 +8,6 @@
 	<title>Blockpost - Unblocked Games Compilation</title>
 <script src="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/files.js"></script>
 	<script>
-var gameConfig = {
-    "companyName": "Skullcap Studios",
-    "productName": "BLOCKPOST MOBILE",
-    "dataUrl": "Build/webgl_poki.data.unityweb",
-    "wasmCodeUrl": combineUnityData(["Build/webgl_poki.wasm.code.unityweb.part1","Build/webgl_poki.wasm.code.unityweb.part2"]),
-    "wasmFrameworkUrl": "Build/webgl_poki.wasm.framework.unityweb",
-    "TOTAL_MEMORY": 268435456,
-    "graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
-    "webglContextAttributes": {"preserveDrawingBuffer": false},
-    "splashScreenStyle": "Dark",
-    "backgroundColor": "#231F20",
-    "cacheControl": {"default": "must-revalidate"}
-    }
-
 	window.config = {
 		loader: 'unity',
 		debug: false,
@@ -33,7 +19,7 @@ var gameConfig = {
 		numScreenshots: 4,
 
 		unityVersion: '2018.4.32f1',
-		unityWebglBuildUrl: gameConfig,
+		unityWebglBuildUrl: 'https://ignistesting.mos.us-south-1.sufybkt.com/Blockpost/Build/webgl_poki.json',
 
 		fileSize: 22,
 		cachedDecompressedFileSizes: {
