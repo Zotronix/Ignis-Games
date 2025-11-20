@@ -104,28 +104,12 @@
     <!--<script src="Build/UnityLoader.js"></script>-->
     <script>
 (async () => { 
-  var gameConfig = {
-"companyName": "JustPlay.LOL",
-"productName": "1v1.LOL",
-"productVersion": "3.800",
-"dataUrl": "https://5a1mtflb8u.ucarecd.net/3d2de4ef-75a6-42a3-85a9-a9766f7d5cae/",
-"wasmCodeUrl": "https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@af01d05/Games/1v1.lol/rc.wasm.code.unityweb",
-"wasmFrameworkUrl": "https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@af01d05/Games/1v1.lol/rc.wasm.framework.unityweb",
-"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
-"webglContextAttributes": {"preserveDrawingBuffer": false},
-"splashScreenStyle": "Dark",
-"backgroundColor": "#000000",
-"cacheControl": {"default": "must-revalidate"},
-"developmentBuild": false,
-"multithreading": false,
-"unityVersion": "2019.4.24f1"
-}
 
 console.log(gameConfig);
       var hostname = window.location.hostname;
       if (hostname.indexOf("dev1v1") >= 0 || hostname.indexOf("dev.1v1") >= 0 || hostname.indexOf("test1v1") >= 0 || hostname.indexOf("test.1v1") >= 0) {
       }
-      var gameInstance = UnityLoader.instantiate("gameContainer", gameConfig, { onProgress: UnityProgress });
+      var gameInstance = UnityLoader.instantiate("gameContainer", "https://ignistesting.mos.us-south-1.sufybkt.com/1v1.lol/WebGL.json", { onProgress: UnityProgress });
       //var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
 
       window.unityInstance = gameInstance;
@@ -314,4 +298,5 @@ console.log(gameConfig);
     </script>
 </body>
 </html>
+
 
