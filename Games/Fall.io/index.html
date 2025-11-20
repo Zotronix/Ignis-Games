@@ -85,12 +85,18 @@
     </script>
 <script src="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/files.js"></script>
     <script>
+(async () => {
+
       var buildUrl = "";
       var loaderUrl = buildUrl + "WebGL FallIO.loader.js";
+
+const dataUrl = await combineUnityData(["WebGL FallIO.data.part1", "WebGL FallIO.data.part2"]);
+const codeUrl = await combineUnityData(["WebGL FallIO.wasm.part1", "WebGL FallIO.wasm.part2"]);
+
       var config = {
-        dataUrl: combineUnityData(["WebGL FallIO.data.part1", "WebGL FallIO.data.part2"]),
+        dataUrl: dataUrl,
         frameworkUrl: buildUrl + "WebGL FallIO.framework.js",
-        codeUrl: combineUnityData(["WebGL FallIO.wasm.part1", "WebGL FallIO.wasm.part2"]),
+        codeUrl: codeUrl,
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Genify",
         productName: "Fall.io",
@@ -144,6 +150,8 @@
         };
         document.body.appendChild(script);
       }
+
+})();
     </script>
   </body>
 </html>
