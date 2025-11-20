@@ -10,19 +10,6 @@
 	<meta name="robots" content="noindex,nofollow" />
 <script src="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/files.js"></script>
 	<script>
-var gameConfig = {
-"companyName": "Destruction Crew",
-"productName": "Rocket Soccer",
-"dataUrl": combineUnityData(["Build/RSD 1.1.0rc4.data.unityweb.part1","Build/RSD 1.1.0rc4.data.unityweb.part2"]),
-"wasmCodeUrl": combineUnityData(["Build/RSD 1.1.0rc4.wasm.code.unityweb.part1","Build/RSD 1.1.0rc4.wasm.code.unityweb.part1"]),
-"wasmFrameworkUrl": "Build/RSD 1.1.0rc4.wasm.framework.unityweb",
-"TOTAL_MEMORY": 268435456,
-"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
-"webglContextAttributes": {"preserveDrawingBuffer": false},
-"splashScreenStyle": "Dark",
-"backgroundColor": "#231F20"
-}
-
 		window.config = {
 		loader: 'unity',
 		debug: false,
@@ -34,7 +21,7 @@ var gameConfig = {
 		thumbnail: 'e521bbbf13a6480b60d75421e7edc8d8d0e1edadaccd7d43438864b62a74088a.png',
 		numScreenshots: 4,
 
-		unityWebglBuildUrl: gameConfig,
+		unityWebglBuildUrl: 'https://ignistesting.mos.us-south-1.sufybkt.com/Rocket%20Soccer%20Derby/Build/RSD%201.1.0rc4.json',
 		unityWebglLoaderUrl: 'UnityLoader.js',
 
 		// **** Optional Settings ****
@@ -54,5 +41,6 @@ var gameConfig = {
 	<!-- <script src="https://game-cdn.poki.com/loaders/v2/master-loader.js"></script> -->
 	<script src="/master-loader.js"></script>
 </body>
+
 
 </html>
