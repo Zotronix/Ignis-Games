@@ -135,6 +135,12 @@ const allGames = [
   "Eaglercraft Collection",
   "Gladihoppers",
   "R.E.P.O.",
+  "Baseball Bros",
+  "Bee Swarm Simulator",
+  "Papa's Burgeria",
+  "Papa's Pizzeria",
+  "Papa's Sushiria",
+  "Soccer Bros",
 ];
 
 adminGames = [
