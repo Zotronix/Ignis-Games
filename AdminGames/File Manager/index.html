@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ignis File Manager</title>
+
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			font-family: Inter, system-ui, Arial;
+		}
+
+		::-webkit-scrollbar{
+		width:8px;
+		height:8px;
+		}
+
+		::-webkit-scrollbar-track{
+		background:transparent;
+		}
+
+		::-webkit-scrollbar-thumb{
+		background:#2a3144;
+		border-radius:10px;
+		}
+
+		::-webkit-scrollbar-thumb:hover{
+		background:#3a4260;
+		}
+
+		body {
+			background: #0f1117;
+			color: #e6e6e6;
+			height: 100vh;
+			display: flex;
+		}
+
+		.container {
+			display: flex;
+			width: 100%;
+			height: 100%;
+		}
+
+		/* Sidebar */
+
+		body{
+		background:#0b0d12;
+		color:#e6e6e6;
+		height:100vh;
+		display:flex;
+		padding:18px;
+		}
+		
+		/* ------------------ */
+		/* LAYOUT */
+		/* ------------------ */
+		
+		.container{
+		display:flex;
+		width:100%;
+		height:100%;
+		gap:18px;
+		}
+		
+		/* ------------------ */
+		/* PANELS */
+		/* ------------------ */
+		
+		.sidebar,
+		.filepanel,
+		.editor{
+		background:#12151d;
+		border-radius:12px;
+		border:1px solid #1d2230;
+		box-shadow:0 8px 25px rgba(0,0,0,0.4);
+		}
+		
+		/* ------------------ */
+		/* SIDEBAR */
+		/* ------------------ */
+		
+		.sidebar{
+		width:240px;
+		padding:20px;
+		overflow:auto;
+		}
+		
+		.sidebar h2{
+		font-size:12px;
+		color:#8a92a8;
+		margin-bottom:14px;
+		letter-spacing:1.4px;
+		}
+		
+		.dir{
+		padding:10px 12px;
+		border-radius:8px;
+		cursor:pointer;
+		margin-bottom:6px;
+		transition:0.15s;
+		font-size:14px;
+		}
+		
+		.dir:hover{
+		background:#1c2130;
+		}
+		
+		.dir.active{
+		background:#2a3144;
+		color:#fff;
+		}
+		
+		/* ------------------ */
+		/* FILE LIST */
+		/* ------------------ */
+		
+		.filepanel{
+		width:260px;
+		overflow:auto;
+		padding:10px;
+		}
+		
+		.file{
+		padding:10px 12px;
+		border-radius:8px;
+		cursor:pointer;
+		margin-bottom:4px;
+		transition:0.15s;
+		font-size:14px;
+		color:#cfd6e6;
+		}
+		
+		.file:hover{
+		background:#1c2130;
+		}
+		
+		/* ------------------ */
+		/* EDITOR */
+		/* ------------------ */
+		
+		.editor{
+		flex:1;
+		display:flex;
+		flex-direction:column;
+		overflow:hidden;
+		}
+		
+		/* Editor header */
+		
+		.editorheader{
+		height:54px;
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		padding:0 18px;
+		border-bottom:1px solid #1d2230;
+		background:#141925;
+		}
+		
+		.editorheader span{
+		font-size:13px;
+		color:#9ca3b8;
+		}
+		
+		/* Save button */
+		
+		button{
+		background:#3b82f6;
+		border:none;
+		color:white;
+		padding:7px 14px;
+		border-radius:8px;
+		cursor:pointer;
+		font-size:13px;
+		transition:.15s;
+		}
+		
+		button:hover{
+		background:#4f8df8;
+		}
+		
+		/* Text editor */
+		
+		textarea{
+		flex:1;
+		background:#0f1320;
+		border:none;
+		color:#d4d4d4;
+		padding:22px;
+		font-family:Consolas,Monaco,monospace;
+		font-size:14px;
+		line-height:1.6;
+		resize:none;
+		outline:none;
+		tab-size:4;
+		}
+		
+		/* Subtle inset look */
+		
+		textarea::selection{
+		background:#3b82f6;
+		color:white;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="sidebar">
+			<h2>DIRECTORIES</h2>
+			<div id="dirs"></div>
+		</div>
+
+		<div class="filepanel">
+			<div id="files"></div>
+		</div>
+
+		<div class="editor">
+
+			<div class="editorheader">
+				<span id="currentFile">No file selected</span>
+				<button id="saveBtn">Save</button>
+			</div>
+
+			<textarea id="editor"></textarea>
+
+		</div>
+
+	</div>
+
+	<script type="module">
+		import {
+			initializeApp
+		} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+		import {
+			getFirestore,
+			doc,
+			setDoc,
+			getDoc
+		} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+		const firebaseConfig = {
+			apiKey: "AIzaSyBejlIoVFKcGr9OqIBcpi1G0LZFrc8Fp6E",
+			authDomain: "ignis-games.firebaseapp.com",
+			projectId: "ignis-games",
+			storageBucket: "ignis-games.firebasestorage.app",
+			messagingSenderId: "880977601892",
+			appId: "1:880977601892:web:3b0a44df73dfa99e5b4671",
+		measurementId: "G-J1N8327SL0"
+		};
+		const app = initializeApp(firebaseConfig);
+		const db = getFirestore(app);
+		async function readArray(tp, d) {
+			const ref = doc(db, d, tp);
+			try {
+				const snap = await getDoc(ref);
+				if (snap.exists()) {
+					return snap.data().data;
+				} else {
+					console.log("errors");
+				}
+			} catch (err) {
+				console.error("Read error:", err);
+			}
+		}
+		let allGames = await readArray('allGames', 'games');
+
+		allGames = allGames.sort(function(a,b) {
+			if (a.toLowerCase() < b.toLowerCase()) {
+				return -1;
+			};
+			if (b.toLowerCase() < a.toLowerCase()) {
+				return 1;
+			};
+		})
+
+		window.directories = allGames;
+
+		/* ----------------------------- */
+/* DIRECTORY LIST (EDIT HERE) */
+/* ----------------------------- */
+
+/* ----------------------------- */
+
+const BASE = "https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games@main/Games/"
+
+const dirContainer = document.getElementById("dirs")
+const fileContainer = document.getElementById("files")
+const editor = document.getElementById("editor")
+const currentFile = document.getElementById("currentFile")
+
+let currentDir = null
+
+/* Build sidebar */
+
+directories.forEach(dir=>{
+let el = document.createElement("div")
+el.className = "dir"
+el.innerText = dir
+
+el.onclick = ()=>{
+document.querySelectorAll(".dir").forEach(d=>d.classList.remove("active"))
+el.classList.add("active")
+
+loadDirectory(dir)
+}
+
+dirContainer.appendChild(el)
+})
+
+/* Load directory */
+
+function loadDirectory(dir){
+
+currentDir = dir
+fileContainer.innerHTML = ""
+
+const files = [
+"index.html",
+]
+
+files.forEach(file=>{
+let el = document.createElement("div")
+el.className = "file"
+el.innerText = file
+
+el.onclick = ()=>loadFile(file)
+
+fileContainer.appendChild(el)
+})
+
+}
+
+/* Load file */
+
+async function loadFile(file){
+
+const url = BASE + currentDir + "/" + file
+
+currentFile.innerText = file
+
+try{
+
+const res = await fetch(url)
+const text = await res.text()
+
+editor.value = text
+
+}catch{
+
+editor.value = "// Unable to load file"
+
+}
+
+}
+
+/* Save placeholder */
+
+document.getElementById("saveBtn").onclick = ()=>{
+	const bytes = new TextEncoder().encode(editor.value)
+	let binary = ""
+	
+	bytes.forEach(b => binary += String.fromCharCode(b))
+
+	const data = {
+		dir: currentDir,
+		value: "data:text/html;base64," + btoa(binary)
+	}
+
+	window.parent.postMessage(data, '*');
+
+	alert("Saved")
+}
+
+	</script>
+
+</body>
+
+</html>
