@@ -400,7 +400,7 @@ document.getElementById("saveBtn").onclick = ()=>{
 window.addEventListener("message", (event) => {
   const data = event.data;
   customDirs = data;
-  alert(customDirs, "Dirs Recieved")
+  alert(JSON.stringify(customDirs))
 });
 
 	</script>
