@@ -13,22 +13,22 @@
 			font-family: Inter, system-ui, Arial;
 		}
 
-		::-webkit-scrollbar{
-		width:8px;
-		height:8px;
+		::-webkit-scrollbar {
+			width: 8px;
+			height: 8px;
 		}
 
-		::-webkit-scrollbar-track{
-		background:transparent;
+		::-webkit-scrollbar-track {
+			background: transparent;
 		}
 
-		::-webkit-scrollbar-thumb{
-		background:#2a3144;
-		border-radius:10px;
+		::-webkit-scrollbar-thumb {
+			background: #2a3144;
+			border-radius: 10px;
 		}
 
-		::-webkit-scrollbar-thumb:hover{
-		background:#3a4260;
+		::-webkit-scrollbar-thumb:hover {
+			background: #3a4260;
 		}
 
 		body {
@@ -46,163 +46,163 @@
 
 		/* Sidebar */
 
-		body{
-		background:#0b0d12;
-		color:#e6e6e6;
-		height:100vh;
-		display:flex;
-		padding:18px;
+		body {
+			background: #0b0d12;
+			color: #e6e6e6;
+			height: 100vh;
+			display: flex;
+			padding: 18px;
 		}
-		
+
 		/* ------------------ */
 		/* LAYOUT */
 		/* ------------------ */
-		
-		.container{
-		display:flex;
-		width:100%;
-		height:100%;
-		gap:18px;
+
+		.container {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			gap: 18px;
 		}
-		
+
 		/* ------------------ */
 		/* PANELS */
 		/* ------------------ */
-		
+
 		.sidebar,
 		.filepanel,
-		.editor{
-		background:#12151d;
-		border-radius:12px;
-		border:1px solid #1d2230;
-		box-shadow:0 8px 25px rgba(0,0,0,0.4);
+		.editor {
+			background: #12151d;
+			border-radius: 12px;
+			border: 1px solid #1d2230;
+			box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 		}
-		
+
 		/* ------------------ */
 		/* SIDEBAR */
 		/* ------------------ */
-		
-		.sidebar{
-		width:240px;
-		padding:20px;
-		overflow:auto;
+
+		.sidebar {
+			width: 240px;
+			padding: 20px;
+			overflow: auto;
 		}
-		
-		.sidebar h2{
-		font-size:12px;
-		color:#8a92a8;
-		margin-bottom:14px;
-		letter-spacing:1.4px;
+
+		.sidebar h2 {
+			font-size: 12px;
+			color: #8a92a8;
+			margin-bottom: 14px;
+			letter-spacing: 1.4px;
 		}
-		
-		.dir{
-		padding:10px 12px;
-		border-radius:8px;
-		cursor:pointer;
-		margin-bottom:6px;
-		transition:0.15s;
-		font-size:14px;
+
+		.dir {
+			padding: 10px 12px;
+			border-radius: 8px;
+			cursor: pointer;
+			margin-bottom: 6px;
+			transition: 0.15s;
+			font-size: 14px;
 		}
-		
-		.dir:hover{
-		background:#1c2130;
+
+		.dir:hover {
+			background: #1c2130;
 		}
-		
-		.dir.active{
-		background:#2a3144;
-		color:#fff;
+
+		.dir.active {
+			background: #2a3144;
+			color: #fff;
 		}
-		
+
 		/* ------------------ */
 		/* FILE LIST */
 		/* ------------------ */
-		
-		.filepanel{
-		width:260px;
-		overflow:auto;
-		padding:10px;
+
+		.filepanel {
+			width: 260px;
+			overflow: auto;
+			padding: 10px;
 		}
-		
-		.file{
-		padding:10px 12px;
-		border-radius:8px;
-		cursor:pointer;
-		margin-bottom:4px;
-		transition:0.15s;
-		font-size:14px;
-		color:#cfd6e6;
+
+		.file {
+			padding: 10px 12px;
+			border-radius: 8px;
+			cursor: pointer;
+			margin-bottom: 4px;
+			transition: 0.15s;
+			font-size: 14px;
+			color: #cfd6e6;
 		}
-		
-		.file:hover{
-		background:#1c2130;
+
+		.file:hover {
+			background: #1c2130;
 		}
-		
+
 		/* ------------------ */
 		/* EDITOR */
 		/* ------------------ */
-		
-		.editor{
-		flex:1;
-		display:flex;
-		flex-direction:column;
-		overflow:hidden;
+
+		.editor {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
 		}
-		
+
 		/* Editor header */
-		
-		.editorheader{
-		height:54px;
-		display:flex;
-		align-items:center;
-		justify-content:space-between;
-		padding:0 18px;
-		border-bottom:1px solid #1d2230;
-		background:#141925;
+
+		.editorheader {
+			height: 54px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 18px;
+			border-bottom: 1px solid #1d2230;
+			background: #141925;
 		}
-		
-		.editorheader span{
-		font-size:13px;
-		color:#9ca3b8;
+
+		.editorheader span {
+			font-size: 13px;
+			color: #9ca3b8;
 		}
-		
+
 		/* Save button */
-		
-		button{
-		background:#3b82f6;
-		border:none;
-		color:white;
-		padding:7px 14px;
-		border-radius:8px;
-		cursor:pointer;
-		font-size:13px;
-		transition:.15s;
+
+		button {
+			background: #3b82f6;
+			border: none;
+			color: white;
+			padding: 7px 14px;
+			border-radius: 8px;
+			cursor: pointer;
+			font-size: 13px;
+			transition: .15s;
 		}
-		
-		button:hover{
-		background:#4f8df8;
+
+		button:hover {
+			background: #4f8df8;
 		}
-		
+
 		/* Text editor */
-		
-		textarea{
-		flex:1;
-		background:#0f1320;
-		border:none;
-		color:#d4d4d4;
-		padding:22px;
-		font-family:Consolas,Monaco,monospace;
-		font-size:14px;
-		line-height:1.6;
-		resize:none;
-		outline:none;
-		tab-size:4;
+
+		textarea {
+			flex: 1;
+			background: #0f1320;
+			border: none;
+			color: #d4d4d4;
+			padding: 22px;
+			font-family: Consolas, Monaco, monospace;
+			font-size: 14px;
+			line-height: 1.6;
+			resize: none;
+			outline: none;
+			tab-size: 4;
 		}
-		
+
 		/* Subtle inset look */
-		
-		textarea::selection{
-		background:#3b82f6;
-		color:white;
+
+		textarea::selection {
+			background: #3b82f6;
+			color: white;
 		}
 	</style>
 </head>
@@ -292,10 +292,24 @@ const dirContainer = document.getElementById("dirs")
 const fileContainer = document.getElementById("files")
 const editor = document.getElementById("editor")
 const currentFile = document.getElementById("currentFile")
+const customDirs = [];
 
 let currentDir = null
 
 /* Build sidebar */
+
+function findDir(name) {
+  function findd(nm) {
+    return nm.dir === name;
+  }
+
+  let item = customDirs.find(findd);
+  if (!item) {
+    return false;
+  } else {
+    return item;
+  }
+}
 
 directories.forEach(dir=>{
 let el = document.createElement("div")
@@ -339,7 +353,11 @@ fileContainer.appendChild(el)
 
 async function loadFile(file){
 
-const url = BASE + currentDir + "/" + file
+const cDir = findDir(currentDir);
+let url = BASE + currentDir + "/" + file
+if (file == "index.html" && cDir) {
+  url = cDir.value;
+}
 
 currentFile.innerText = file
 
@@ -375,6 +393,11 @@ document.getElementById("saveBtn").onclick = ()=>{
 
 	alert("Saved")
 }
+
+window.addEventListener("message", (event) => {
+  const data = event.data;
+  customDirs = data;
+});
 
 	</script>
 
