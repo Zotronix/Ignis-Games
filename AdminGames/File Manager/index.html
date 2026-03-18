@@ -356,7 +356,7 @@ async function loadFile(file){
 const cDir = findDir(currentDir);
 let url = BASE + currentDir + "/" + file
 if (file == "index.html" && cDir) {
-  url = cDir.value;
+  url = cDir.url;
 }
 
 currentFile.innerText = file
