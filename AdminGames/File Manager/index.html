@@ -357,6 +357,9 @@ const cDir = findDir(currentDir);
 let url = BASE + currentDir + "/" + file
 if (file == "index.html" && cDir) {
   url = cDir.value;
+  alert("Correctly changed URL");
+} else {
+	alert("Failed URL change")
 }
 
 currentFile.innerText = file
@@ -397,6 +400,7 @@ document.getElementById("saveBtn").onclick = ()=>{
 window.addEventListener("message", (event) => {
   const data = event.data;
   customDirs = data;
+  alert(customDirs, "Dirs Recieved")
 });
 
 	</script>
