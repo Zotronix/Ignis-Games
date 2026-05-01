@@ -1,19 +1,20 @@
-
 <!DOCTYPE html>
 <html style="width:100%;height:100%;background-color:black;">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-		<meta name="description" content="Eaglercraft 1.12 WASM-GC test directory HTML page" />
-		<meta name="keywords" content="eaglercraftminecraft, 1.12, 1.12.2" />
-		<title>Eaglercraft 1.12 WASM-GC</title>
-		<meta property="og:locale" content="en-US" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Eaglercraft 1.12 WASM-GC" />
-		<meta property="og:description" content="test directory HTML page" />
-		<link type="image/png" rel="shortcut icon" href="favicon.png" />
-		<script type="text/javascript">
-			"use strict";
+
+<head>
+  <base href="https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games/Games/Minecraft%20Modern%20Client/" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="description" content="Eaglercraft 1.12 WASM-GC test directory HTML page" />
+	<meta name="keywords" content="eaglercraftminecraft, 1.12, 1.12.2" />
+	<title>Eaglercraft 1.12 WASM-GC</title>
+	<meta property="og:locale" content="en-US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Eaglercraft 1.12 WASM-GC" />
+	<meta property="og:description" content="test directory HTML page" />
+	<link type="image/png" rel="shortcut icon" href="favicon.png" />
+	<script type="text/javascript">
+		"use strict";
             const oldFetch = window.fetch;
 
             async function fetchWithProgress(url) {
@@ -43,7 +44,7 @@
             }
 
             window.fetch = async (file, ...args) => {
-                if (file === "assets.epk") {
+                if (file.includes("assets.epk")) {
                     const parts = ["assets.epk.part1.bin", "assets.epk.part2.bin"];
                     
                     try {
@@ -110,16 +111,16 @@
 							return eaglercraftXOpts;
 						},
 						getEagRuntimeJSURL: function() {
-							return "eagruntime.js?v=2.0.3";
+							return "https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games/Games/Minecraft%20Modern%20Client/eagruntime.js?v=2.0.3";
 						},
 						getClassesWASMURL: function() {
-							return "classes.wasm?v=2.0.3";
+							return "https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games/Games/Minecraft%20Modern%20Client/classes.wasm?v=2.0.3";
 						},
 						getClassesDeobfWASMURL: function() {
-							return "classes.wasm-deobfuscator.wasm?v=2.0.3";
+							return "https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games/Games/Minecraft%20Modern%20Client/classes.wasm-deobfuscator.wasm?v=2.0.3";
 						},
 						getClassesTEADBGURL: function() {
-							return "classes.wasm.teadbg?v=2.0.3";
+							return "https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games/Games/Minecraft%20Modern%20Client/classes.wasm.teadbg?v=2.0.3";
 						},
 						getEPKFiles: function() {
 							return [{
@@ -139,7 +140,7 @@
 							case 0:
 								return "splash.png";
 							case 1:
-								return "pressAnyKey.png";
+								return "https://cdn.jsdelivr.net/gh/Zotronix/Ignis-Games/Games/Minecraft%20Modern%20Client/pressAnyKey.png";
 							case 2:
 								return "crashLogo.png";
 							case 3:
@@ -166,7 +167,9 @@
 					document.head.appendChild(scriptElement);
 				}
 			});
-		</script>
-	</head>
-	<body style="margin:0px;width:100%;height:100%;overflow:hidden;background-color:black;" id="game_frame"></body>
+	</script>
+</head>
+
+<body style="margin:0px;width:100%;height:100%;overflow:hidden;background-color:black;" id="game_frame"></body>
+
 </html>
