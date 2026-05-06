@@ -2,15 +2,13 @@
 
 <body>
 	<script>
-		window._webGD__ = "c4754c8";
-	</script>
-	<script>
+		window.rep = "a8df774"
 		window.addEventListener("load", function() {
-			fetch("https://cdn.jsdelivr.net/gh/web-dashers/web-dashers.github.io@" + window._webGD__ + "/index.html")
+			fetch("https://cdn.jsdelivr.net/gh/web-dashers/web-dashers.github.io@" + window.rep + "/index.html")
 			.then(res => res.text())
 			.then(text => {
 				document.open();
-				document.write(text.replace("<!DOCTYPE html>", "<base href='https://cdn.jsdelivr.net/gh/web-dashers/web-dashers.github.io@" + window._webGD__ + "/' />"));
+				document.write(text.replace("<!DOCTYPE html>", "<base href='https://cdn.jsdelivr.net/gh/web-dashers/web-dashers.github.io@" + window.rep + "/' />"));
 				document.close();
 			})
 		})
