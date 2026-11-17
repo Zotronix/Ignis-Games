@@ -1,1 +1,1 @@
-window._webGD__ = "latest";
+window._webGD__ = "main";
